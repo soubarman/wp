@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root' // This ensures the service is available throughout the app
+  providedIn: 'root' 
 })
 export class WeatherService {
   private apiKey = '67895a2f180a45a594a43635242408';
-  private apiUrl = 'http://api.weatherapi.com/v1';
+  private apiUrl = 'https://api.weatherapi.com/v1';
 
   constructor(private http: HttpClient) {}
 
