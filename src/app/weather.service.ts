@@ -12,8 +12,11 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
 
   searchLocation(query: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/search.json?key=${this.apiKey}&q=${query}`);
-  }
+  const url = `${this.apiUrl}/search.json?key=${this.apiKey}&q=${query}`;
+  console.log('Request URL:', url); // Add this line to debug the URL being used
+  return this.http.get(url);
+}
+
 
   getCurrentWeather(location: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/current.json?key=${this.apiKey}&q=${location}`);
