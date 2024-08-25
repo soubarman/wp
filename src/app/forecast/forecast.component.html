@@ -1,7 +1,8 @@
 
   
   <div class="forecast"  *ngIf="forecast">
-    <h2 style="text-align: center;">13-Days Forecast for {{ forecast.location.name }}</h2>
+    <h2 style="text-align: center;    font-family: system-ui;
+    color: white;">13-Days Forecast for {{ forecast.location.name }}</h2>
     <div class="forecast-container">
       <div class="card2" *ngFor="let day of filteredForecast()">
         <h3>{{ day.date | date:'MMMM d, y'}}, {{ day.date | date:'EEEE' }}</h3>
