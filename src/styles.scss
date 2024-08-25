@@ -1,1 +1,633 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background: #983febba;
+}
+
+ 
+
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 72px 0;
+  gap: 20px; /* Adds space between cloud and heading */
+}
+
+.cloud {
+  width: 150px;
+  height: 70px;
+  background: #ECEFF1;
+  box-shadow: 10px 10px rgba(0,0,0,0.2);
+  border-radius: 70px;
+  position: relative;
+}
+
+.cloud::after, .cloud::before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.cloud::after {
+  width: 50px;
+  height: 50px;
+  top: -10px;
+  left: 24px;
+}
+
+.cloud::before {
+  width: 70px;
+  height: 70px;
+  top: -24px;
+  left: 62px;
+}
+
+
+
+.cloud {
+  animation: float 1.8s infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.shadow {
+  width: 150px;
+  height: 24px;
+  background-color: rgba(0,0,0,0.2);
+  margin-top: 100px;
+  border-radius: 50%;
+  filter: blur(7px);
+  animation: sha 1.8s infinite alternate;
+}
+
+@keyframes sha {
+  0% {
+    transform: scale(1,1);
+  }
+  100% {
+    transform: scale(.85,.85);
+  }
+}
+
+
+.container h1 {
+  text-align: center;
+  font-family: monospace;
+  font-size: 50px;
+}
+
+.search-container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  display: inline-block;
+  position: relative;
+
+  input {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    outline: none;
+
+    &:focus {
+      outline: none;
+      width: 300px;
+    }
+  }
+
+  button {
+    background-color: #4e99e9;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #357abd;
+    }
+  }
+}
+
+
+
+.weather-info,
+.forecast-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+@media (min-width: 768px) {
+
+  .weather-info,
+  .forecast-day {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+.weather-widget {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 350px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+
+  .weather-header {
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+  }
+
+  .weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .weather-icon {
+      img {
+        width: 80px;
+        height: 80px;
+        margin-right: 20px;
+      }
+    }
+
+    .weather-details {
+      text-align: left;
+
+      p {
+        margin: 5px 0;
+      }
+
+      .temperature {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .condition {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .wind-speed,
+      .humidity {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+
+        i {
+          margin-right: 8px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+//current-weather scss
+// .stretch-card>.card {
+//   width: 100%;
+//   min-width: 100%
+// }
+
+
+
+// .flex {
+//   -webkit-box-flex: 1;
+//   -ms-flex: 1 1 auto;
+//   flex: 1 1 auto
+// }
+
+// @media (max-width:991.98px) {
+//   .padding {
+//     padding: 1.5rem
+//   }
+// }
+
+// @media (max-width:767.98px) {
+//   .padding {
+//     padding: 1rem
+//   }
+// }
+
+// .padding {
+//   padding: 5rem
+// }
+
+// .grid-margin,
+// .purchace-popup>div {
+//   margin-bottom: 25px;
+// }
+
+// .card {
+//   border: 0;
+//   border-radius: 2px;
+// }
+
+// .card-weather {
+//   background: #e1ecff;
+//   background-image: linear-gradient(to left bottom, #d6eef6, #dff0fa, #e7f3fc, #eff6fe, #f6f9ff);
+// }
+
+// .card {
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   min-width: 0;
+//   word-wrap: break-word;
+//   background-color: #fff;
+//   background-clip: border-box;
+//   border: 1px solid rgba(0, 0, 0, 0.125);
+//   border-radius: 0.25rem;
+// }
+
+
+// .card-weather .card-body:first-child {
+//   background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;
+//   background-size: cover;
+// }
+
+// .card .card-body {
+//   padding: 1.88rem 1.81rem;
+// }
+
+// .card-body {
+//   flex: 1 1 auto;
+//   padding: 1.25rem;
+// }
+
+// .card-weather .weather-date-location {
+//   padding: 0 0 38px;
+// }
+
+// .h3,
+// h3 {
+//   font-size: 1.56rem;
+// }
+
+// .h1,
+// .h2,
+// .h3,
+// .h4,
+// .h5,
+// .h6,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-family: "Poppins", sans-serif;
+//   font-weight: 500;
+// }
+
+// .text-gray,
+// .card-subtitle,
+// .new-accounts ul.chats li.chat-persons a p.joined-date {
+//   color: #969696;
+// }
+
+// p {
+//   font-size: 13px;
+// }
+
+// .text-gray,
+// .card-subtitle,
+// .new-accounts ul.chats li.chat-persons a p.joined-date {
+//   color: #969696;
+// }
+
+// .card-weather .weather-data {
+//   padding: 0 0 4.75rem;
+// }
+
+// .mr-auto,
+// .mx-auto {
+//   margin-right: auto !important;
+// }
+
+// .display-3 {
+//   font-size: 2.5rem;
+// }
+
+// .card-weather .card-body {
+//   background: #ffffff;
+// }
+
+// .card-weather .weakly-weather {
+//   background: #ffffff;
+//   overflow-x: auto;
+// }
+
+// .card-weather .weakly-weather .weakly-weather-item {
+//   flex: 0 0 14.28%;
+//   border-right: 1px solid #f2f2f2;
+//   padding: 1rem;
+//   text-align: center;
+// }
+
+// .mb-0,
+// .my-0 {
+//   margin-bottom: 0 !important;
+// }
+
+// .card-weather .weakly-weather .weakly-weather-item i {
+//   font-size: 1.2rem;
+// }
+
+
+
+.container3{
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line if there isn't enough space */
+  gap: 20px; /* Adds space between cards */
+  justify-content: center; /* Centers cards horizontally */
+}
+
+
+
+.card2 {
+  margin-top: 60px;
+  width: 350px;
+  height: 262px;
+  position: relative;
+  padding: 25px;
+  background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #FFFFFF;
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 23px;
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  cursor: pointer;
+}
+
+.card2:hover {
+  transform: scale(1.05);
+}
+
+.container2 {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  right: -35px;
+  top: -50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.7);
+}
+
+.cloud2 {
+  width: 250px;
+}
+
+.front {
+  padding-top: 45px;
+  margin-left: 84px;
+  display: inline;
+  position: absolute;
+  z-index: 11;
+  animation: clouds 8s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.back {
+  margin-top: -26px;
+  margin-left: 267px;
+  z-index: 12;
+  animation: clouds 12s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.right-front {
+  width: 45px;
+  height: 45px;
+  border-radius: 50% 50% 50% 0%;
+  background-color: #ffffff;
+  display: inline-block;
+  margin-left: -25px;
+  z-index: 5;
+}
+
+.left-front {
+  width: 65px;
+  height: 65px;
+  border-radius: 50% 50% 0% 50%;
+  background-color: #ffffff;
+  display: inline-block;
+  z-index: 5;
+}
+
+.right-back {
+  width: 50px;
+  height: 50px;
+  border-radius: 50% 50% 50% 0%;
+  background-color: #ffffff;
+  display: inline-block;
+  margin-left: -20px;
+  z-index: 5;
+}
+
+.left-back {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 0% 50%;
+  background-color: #ffffff;
+  display: inline-block;
+  z-index: 5;
+}
+
+.sun {
+  width: 120px;
+  height: 120px;
+  background: -webkit-linear-gradient(to right, #fcbb04, #fffc00);
+  background: linear-gradient(to right, #fcbb04, #fffc00);
+  border-radius: 60px;
+  display: inline;
+  position: absolute;
+}
+
+.sunshine {
+  animation: sunshines 2s infinite;
+}
+
+@keyframes sunshines {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes clouds {
+  0% {
+    transform: translateX(15px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(15px);
+  }
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-header span:first-child {
+  word-break: break-all;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 135%;
+  color: rgba(87, 77, 51, 0.66);
+}
+
+.card-header span:last-child {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 135%;
+  color: rgba(87, 77, 51, 0.33);
+}
+
+
+.card-header2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 64px;
+
+}
+
+.card-header2 span:first-child {
+  word-break: break-all;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 135%;
+  color: rgba(87, 77, 51, 0.66);
+}
+
+.card-header2 span:last-child {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 135%;
+  color: rgba(87, 77, 51, 0.33);
+}
+
+
+.card-header3 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ 
+
+}
+
+.card-header3 span:first-child {
+  word-break: break-all;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 135%;
+  color: rgba(87, 77, 51, 0.66);
+}
+
+.card-header3 span:last-child {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 135%;
+  color: rgba(87, 77, 51, 0.33);
+}
+
+
+.temp {
+  position: absolute;
+  left: 25px;
+ 
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 77px;
+  color: rgba(87, 77, 51, 1);
+}
+
+.temp-scale {
+  width: 80px;
+  height: 36px;
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 9px;
+}
+
+.temp-scale span {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 134.49%;
+  color: rgba(87, 77, 51, 0.66);
+}
+
+
+
+//forecast
+.forecast-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line if there isn't enough space */
+  gap: 20px; /* Adds space between cards */
+  justify-content: center; /* Centers cards horizontally */
+}

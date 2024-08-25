@@ -1,13 +1,30 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { SearchComponent } from './search/search.component';
+import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { ForecastComponent } from './forecast/forecast.component';
+import { WeatherService } from './weather.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  imports: [
+    CommonModule,
+    SearchComponent,
+    CurrentWeatherComponent,
+    ForecastComponent
+  ]
 })
 export class AppComponent {
-  title = 'weather-dashboard';
+  title = 'Weather Dashboard';
+  location: string = '';
+
+  constructor(private weatherService: WeatherService) {}
+
+  onSearch(searchTerm: string) {
+    console.log(searchTerm); // Handle the search term
+    this.location = searchTerm; // Update location or perform search
+  }
 }
