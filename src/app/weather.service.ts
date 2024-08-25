@@ -11,9 +11,10 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
 
-  searchLocation(query: string): Observable<any> {
+   searchLocation(query: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/search.json?key=${this.apiKey}&q=${query}`);
   }
+
 
   getCurrentWeather(location: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/current.json?key=${this.apiKey}&q=${location}`);
