@@ -1,27 +1,22 @@
-# WeatherDashboard
+# Weather Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+## Setup Instructions
 
-## Development server
+1. Clone the repository: `git clone https://github.com/yourusername/weather-dashboard.git`
+2. Navigate to the project directory: `cd weather-dashboard`
+3. Install dependencies: `npm install`
+4. Run the application: `ng serve`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Project Overview
 
-## Code scaffolding
+This Angular weather dashboard allows users to search for the current weather and a 3-day forecast for any location. The app uses the WeatherAPI for fetching weather data and includes features like responsive design and Angular Material for UI consistency.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Key Features
 
-## Build
+- **Location Search**: Allows searching by city or zip code.
+- **Current Weather**: Displays temperature, wind speed, humidity, and weather condition.
+- **3-Day Forecast**: Shows high/low temperatures and weather conditions for the next three days.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Deployment
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+A live demo is available at: [Weather Dashboard Demo](https://yourdeploymenturl.com)
